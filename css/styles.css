@@ -1,25 +1,53 @@
 :root{
-    --blanco:#FFFFFF;
+    --blanco:#FFFFFF;  /* custom properties */
     --obscuro:#212121;
     --prmario:#FFC107;
     --secundario:#0097A7;
     --gris:#757575;
+    --azulClaro:#8ddaee;
 
 }
 
+/* Globales */
 html{
     font-size: 62.5%;
     box-sizing: border-box;
 }
 
 *, *:before, *:after {
-    box-sizing: inherit;
+    box-sizing: inherit; /* hack para el box model */
   }
 body{
     font-size: 16px; /* 1rem = 10px*/
     font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--azulClaro) 0%, var(--blanco) 100%);
 }
 
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto; /* con solo 2 valores css repite los varios los restantes*/
+}
+
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 1rem;
+    width: 90%;
+    text-align: center;
+}
+
+@media (min-width: 760px) { 
+    .boton{
+        width: auto;
+    }
+}
+
+/* tipografia */
 h1{
     font-size: 3.8rem;
 }
@@ -33,15 +61,12 @@ h1,h2,h3{
     text-align: center;
 }
 
+/* titulo */
 .titulo span{
     font-size: 2rem;
 }
 
-.contenedor{
-    max-width: 120rem;
-    margin: 0 auto; /* con solo 2 valores css repite los varios los restantes*/
-}
-
+/* Navegacion */
 .nav-bg{
      background-color: var(--secundario);
 }
@@ -72,6 +97,7 @@ h1,h2,h3{
     color: var(--obscuro);
 }
 
+/* Hero */
 .hero{
     background-image: url(../img/hero.jpg);
     background-repeat: no-repeat;
@@ -98,7 +124,8 @@ h1,h2,h3{
     color: var(--blanco);
 }
 
-.ubicacion{
+.contenido-hero .ubicacion{
     display: flex;
     justify-content: flex-end;
 }
+
