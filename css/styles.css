@@ -20,9 +20,17 @@ body{
     font-family: 'Krub', sans-serif;
 }
 
-.titulo{
-    text-align: center;
+h1{
     font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1,h2,h3{
+    text-align: center;
 }
 
 .titulo span{
@@ -68,4 +76,29 @@ body{
     background-image: url(../img/hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 45rem;
+    position: relative;
+}
+
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0, 0, 0, .8); /** sitaxis anterior para poner trasparenciaen el alpha channer**/
+    background-color: rgb(0 0 0 / .8); /*nueva sintaxs para agregar trasnparencia suando solo rgb*/
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2, 
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.ubicacion{
+    display: flex;
+    justify-content: flex-end;
 }
