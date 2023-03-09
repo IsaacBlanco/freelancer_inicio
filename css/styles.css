@@ -1,25 +1,67 @@
 :root{
-    --blanco:#FFFFFF;
+    --blanco:#FFFFFF;  /* custom properties */
     --obscuro:#212121;
     --prmario:#FFC107;
     --secundario:#0097A7;
     --gris:#757575;
+    --azulClaro:#8ddaee;
 
 }
 
+/* Globales */
 html{
     font-size: 62.5%;
     box-sizing: border-box;
 }
 
 *, *:before, *:after {
-    box-sizing: inherit;
+    box-sizing: inherit; /* hack para el box model */
   }
 body{
     font-size: 16px; /* 1rem = 10px*/
     font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--azulClaro) 0%, var(--blanco) 100%);
 }
 
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto; /* con solo 2 valores css repite los varios los restantes*/
+}
+
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 1rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+.boton:hover{
+    cursor: pointer;
+}
+
+@media (min-width: 760px) { 
+    .boton{
+        width: auto;
+    }
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 0px 22px 1px rgba(255,102,145,1);
+    -moz-box-shadow: 0px 0px 22px 1px rgba(255,102,145,1);
+    box-shadow: 0px 0px 22px 1px rgba(255,102,145,1);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+/* tipografia */
 h1{
     font-size: 3.8rem;
 }
@@ -33,15 +75,32 @@ h1,h2,h3{
     text-align: center;
 }
 
+/* titulo */
 .titulo span{
     font-size: 2rem;
 }
 
-.contenedor{
-    max-width: 120rem;
-    margin: 0 auto; /* con solo 2 valores css repite los varios los restantes*/
+/* Utilidades */
+
+.w-sm-100{
+    width: 100%;
 }
 
+@media (min-width: 700px) {
+    .w-sm-100{
+        width: auto;
+    }
+}
+
+.flex{
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+/* Navegacion */
 .nav-bg{
      background-color: var(--secundario);
 }
@@ -52,7 +111,7 @@ h1,h2,h3{
     align-items: center;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 480px) {
     .navegacion-principal{
         flex-direction: row;
         justify-content: space-between;
@@ -72,12 +131,14 @@ h1,h2,h3{
     color: var(--obscuro);
 }
 
+/* Hero */
 .hero{
     background-image: url(../img/hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 45rem;
     position: relative;
+    margin-bottom: 3rem;
 }
 
 .contenido-hero{
@@ -98,7 +159,120 @@ h1,h2,h3{
     color: var(--blanco);
 }
 
-.ubicacion{
+.contenido-hero .ubicacion{
     display: flex;
     justify-content: flex-end;
 }
+
+/* Servicios */
+@media (min-width: 760px) {
+    .servicios{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+    }
+}
+
+
+/* Servicio */
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+
+}
+
+.servicio p{
+    line-height: 2;
+    text-align: center;
+}
+
+.servicio .iconos{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    background-color: var(--prmario);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Contacto */
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%);/* utilizar el valor mas pequeño */
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 2rem;
+}
+.formulario legend{
+    color: var(--prmario);
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.formulario fieldset{
+    border: none;
+}
+
+@media (min-width: 760px) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows:auto auto 20rem ;
+        column-gap: 1rem;
+    }
+    
+    .contenedor-campos :nth-child(3),
+    .contenedor-campos :nth-child(4){
+        
+        /* nth seleccion los childs del padre segun el numero en su posision
+            y una vez seleccionado el elemento hijo puede aplicarse una extension del elemento
+            hacia la columna deseada usando grid-column: [columna inicial] / [columna final]
+    
+            aqui los hijos 3 y 4 del .contenedor-campos se extiendo de de la 1 a la 3
+        */
+        grid-column: 1 / 3; 
+    }
+}
+
+
+
+.campo{
+    margin-bottom: 1rem;
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.campo textarea{
+    height: 100%;
+}
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+/* Footer */
+.footer{
+    text-align: center;
+}
+
+
+
